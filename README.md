@@ -1,3 +1,2 @@
-# Question Answering Using Retriver Augmented Generation
-
+# Question Answering Using RAG
 Base Model - T5
