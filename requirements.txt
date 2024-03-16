@@ -1,0 +1,8 @@
+transformers
+evaluate
+rouge
+torch
+pandas
+nltk
+spacy
+matplotlib
