@@ -1,2 +1,2 @@
-# Question Answering Generation Using RAG
+# Generative Question Answering Using RAG
 Base Model - T5
