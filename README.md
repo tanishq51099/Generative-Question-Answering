@@ -13,7 +13,8 @@ Retrieval Model - Dense Passage Retrieval
 * By calculating the cosine similarity between the query and all passages, we selected the most pertinent passages from our external context pool.
 Embedding function (encoder) : all-distilroberta-v1, multi-qa-mpnet-base-dot-v1 and all-MiniLM-L6-v2 (default).
 * The top 5, top 3, and top 1 passage was then selected and given to the Generator model.
-* ![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/b9003815-56cd-468c-aa6e-182ae88ab5a7)
+
+![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/b9003815-56cd-468c-aa6e-182ae88ab5a7)
 
 
 ### Method 2 (Using Cross Encoder Ranker)- 
@@ -24,8 +25,14 @@ Embedding function (encoder) : all-distilroberta-v1, multi-qa-mpnet-base-dot-v1 
 Dense Passage Retriever: ms-marco-MiniLM-L-6-v2
 * The top 5, top 3, and top 1 passage was then selected and given to the Generator model.
 
+![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/48f0ce5e-3a09-4260-9916-211b6c9f4356)
+
+
 ### Method 3 (Using Cross Encoder Ranker with Query Expansion)-
 * To further increase the accuracy of the retriever model, query expansion is implemented.
 * In this method, the query was first given to an LLM model (in this case MISTRAL 7B was used) and a prompt was given to suggest an answer to the query. This provided relevant context.
 * This generated answer is then augmented with the query and given to the retriever model.
-* These top-ranked passages received from the encoder are then forwarded to the generation stage
+* These top-ranked passages received from the encoder are then forwarded to the generation stage.
+
+![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/48161c0a-c6c7-4dc1-8bfc-d6cb68b04b2c)
+
