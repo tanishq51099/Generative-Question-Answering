@@ -42,7 +42,7 @@ We utilize T5 and Llama 2 as the generators within the RAG framework. Fine-tunin
 **Prompt 1**: “Answer the question based on context provided: question:’ ’, context: ‘ ’”
 **Prompt 2 (or NA prompt)**: “Answer the question based on the context provided. If there is no answer in the context, respond with 'no answer'. Question:’ ’, context: ‘“
 **Prompt 3**: "Answer the question based on the context provided. The answer should be a phrase within the context, if there is no answer within the context, respond with 'no answer'. "
-Prompt (Llama2): “<s>[INST]<<SYS>> Answer the question based on only the context provided. The answer should be a phrase within the context, if there is no answer within the context, respond with 'no answer'. Don't write sentences. Just give answers in minimum words. Don't write 'The answer is.'<</SYS>> question:{prompt}, context:{context} [/INST]"
+**Prompt (Llama2)**: “<s>[INST]<<SYS>> Answer the question based on only the context provided. The answer should be a phrase within the context, if there is no answer within the context, respond with 'no answer'. Don't write sentences. Just give answers in minimum words. Don't write 'The answer is.'<</SYS>> question:{prompt}, context:{context} [/INST]"
 
 T5 (Base + Prompt) :    “t5-base” model with prompt1
 T5 (Base + NA Prompt) :    “t5-base” model with prompt2
