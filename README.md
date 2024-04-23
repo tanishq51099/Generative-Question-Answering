@@ -35,3 +35,26 @@ Dense Passage Retriever: ms-marco-MiniLM-L-6-v2
 * These top-ranked passages received from the encoder are then forwarded to the generation stage.
 
 ![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/48161c0a-c6c7-4dc1-8bfc-d6cb68b04b2c)
+
+
+## GENERATOR
+We utilize T5 and Llama 2 as the generators within the RAG framework. Fine-tuning is applied to adapt the T5 model specifically for the SQuAD dataset. Various prompt engineering techniques are employed to guide the model in generating precise answers.
+**Prompt 1**: “Answer the question based on context provided: question:’ ’, context: ‘ ’”
+**Prompt 2 (or NA prompt)**: “Answer the question based on the context provided. If there is no answer in the context, respond with 'no answer'. Question:’ ’, context: ‘“
+**Prompt 3**: "Answer the question based on the context provided. The answer should be a phrase within the context, if there is no answer within the context, respond with 'no answer'. "
+Prompt (Llama2): “<s>[INST]<<SYS>> Answer the question based on only the context provided. The answer should be a phrase within the context, if there is no answer within the context, respond with 'no answer'. Don't write sentences. Just give answers in minimum words. Don't write 'The answer is.'<</SYS>> question:{prompt}, context:{context} [/INST]"
+
+T5 (Base + Prompt) :    “t5-base” model with prompt1
+T5 (Base + NA Prompt) :    “t5-base” model with prompt2
+T5 (Fine Tuned(2)):    Fine-tuned “t5-base” trained on Squad’s Training set (n_epochs=2) without any prompt.
+T5 (Fine-Tuned(2) + Prompt) :    Fine-tuned “t5-base”.......... with prompt1 (n_epochs=2)
+T5 (Fine-Tuned(2) + NA Prompt) :    Fine-tuned “t5-base”...... with prompt2 (n_epochs=2)
+Llama2 (Base + NA Prompt) :    “Llama2” model with Llama2 prompt
+
+### Fine Tuning
+We chose the T5-base model from HuggingFace for our language model because of its extended context length limit and because it hadn't been pre-trained on SquAD, which would prevent bias. Initial tests without context yielded 0 accuracy, highlighting its limitations. Even with context, the base model struggled with Exact Match due to uncertainty in answer size. To address this, we fine-tuned T5 on SquAD's training set, resulting in a remarkable improvement across all metrics, with Exact Match rising from 28% to 65%.
+
+### Prompt Engineering
+Following this, we devised various prompts, including Prompt 1, Prompt 2, Prompt 3, and the Llama Prompt, to ensure robust performance on questions lacking an explicit answer in the context. Prompt 2, instructing the model to return "no answer" when appropriate, notably improved T5's Exact Match by 1%. Prompt 3 aimed to extract exact phrases from the paragraph, theoretically enhancing Exact Match, although initial results suggest otherwise.
+For Llama2, we used the same prompt of returning “no answer” and wrote in the prompt format specific to Llama2.
+
