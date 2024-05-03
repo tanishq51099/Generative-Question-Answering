@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Generative Question Answering Using RAG
 Base Model - T5, Llama2
 
@@ -74,9 +73,6 @@ Following this, we devised various prompts, including Prompt 1, Prompt 2, Prompt
 For Llama2, we used the same prompt of returning “no answer” and wrote in the prompt format specific to Llama2.
 
 =======
-# Generative Question Answering 
-
-This project aims to build a question answering system using T5 model.
 
 ## Installation
 
@@ -90,4 +86,3 @@ This project aims to build a question answering system using T5 model.
 ## Credits
 
 - Developed by Parth Maheshwari, Sahithi Sane, Tanishq Tanmay.
->>>>>>> base_t5
