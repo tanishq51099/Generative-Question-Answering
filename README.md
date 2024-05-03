@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Generative Question Answering Using RAG
 Base Model - T5, Llama2
 
@@ -58,3 +59,21 @@ We chose the T5-base model from HuggingFace for our language model because of it
 Following this, we devised various prompts, including Prompt 1, Prompt 2, Prompt 3, and the Llama Prompt, to ensure robust performance on questions lacking an explicit answer in the context. Prompt 2, instructing the model to return "no answer" when appropriate, notably improved T5's Exact Match by 1%. Prompt 3 aimed to extract exact phrases from the paragraph, theoretically enhancing Exact Match, although initial results suggest otherwise.
 For Llama2, we used the same prompt of returning “no answer” and wrote in the prompt format specific to Llama2.
 
+=======
+# Generative Question Answering 
+
+This project aims to build a question answering system using T5 model.
+
+## Installation
+
+1. Clone the repository.
+2. Install dependencies using `pip install -r requirements.txt`.
+
+## Usage
+
+- Run `main.py` to train and evaluate the model.
+
+## Credits
+
+- Developed by Parth Maheshwari, Sahithi Sane, Tanishq Tanmay.
+>>>>>>> base_t5
