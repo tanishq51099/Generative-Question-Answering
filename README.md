@@ -4,6 +4,12 @@ Base Model - T5, Llama2
 
 Detailed Results - https://docs.google.com/spreadsheets/d/1s9FNl4oVRXnhS3HE6_Na75iQXlE09eexE6i85Zyqu1w/edit?usp=sharing
 
+## RAG Architecture
+
+![alt text](static/RAG Architecture.png?raw=true)
+
+
+
 ## Dense Passage Retriever Techniques followed
 3 Methods were followed for the Retriever model -
 
