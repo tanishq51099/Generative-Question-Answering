@@ -6,8 +6,7 @@ Detailed Results - https://docs.google.com/spreadsheets/d/1s9FNl4oVRXnhS3HE6_Na7
 
 ## RAG Architecture
 
-![alt text](static/RAG Architecture.png?raw=true)
-
+![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/20563702/3a24ea24-65cd-4588-a5f0-320230e19a21)
 
 
 ## Dense Passage Retriever Techniques followed
