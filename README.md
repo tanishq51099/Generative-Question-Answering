@@ -9,15 +9,19 @@ Detailed Results - https://docs.google.com/spreadsheets/d/1s9FNl4oVRXnhS3HE6_Na7
 ![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/20563702/3a24ea24-65cd-4588-a5f0-320230e19a21)
 
 
-## Dense Passage Retriever Techniques followed
-3 Methods were followed for the Retriever model -
+## Implementation:
+The learning examples consist of questions paired with their respective contexts from the SQuAD dataset. Prompts are designed to facilitate accurate answer generation. 
+
+RETRIEVER : We implement both sparse (TF-IDF, BM25) and dense (DPR) retrieval methods to enhance the relevance of retrieved passages. We have employed 3 Methods to compare and decide which model and method combination gives better results for retrieval. 
 
 ### Method 1 - 
 * We curated and preserved all context passages from the training and development sets of the SQuAD dataset as our external data contexts. These external contexts were subsequently embedded and stored in a vector database.
 * Each passage from the SQuAD dataset was treated as an individual chunk. This granularity allowed us to process and analyze each passage independently.
 * To identify relevant contexts, we converted the user query using the same embedding function.
 * By calculating the cosine similarity between the query and all passages, we selected the most pertinent passages from our external context pool.
-Embedding function (encoder) : all-distilroberta-v1, multi-qa-mpnet-base-dot-v1 and all-MiniLM-L6-v2 (default).
+* Embedding function (encoder) :
+  - all-distilroberta-v1, multi-qa-mpnet-base-dot-v1 and all-MiniLM-L6-v2 (default)
+  - Sparse Retriever: BM25, TFIDF
 * The top 5, top 3, and top 1 passage was then selected and given to the Generator model.
 
 ![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/b9003815-56cd-468c-aa6e-182ae88ab5a7)
@@ -27,8 +31,9 @@ Embedding function (encoder) : all-distilroberta-v1, multi-qa-mpnet-base-dot-v1 
 * A cross-encoder ranking method was then used to improve the accuracy of the retrieval model.
 * In this method, the first 10 passages were retrieved using the dense passage retriever and then ranked based on a cross-encoder method.
 * The cross-encoder method takes the user query and all the retrieved passages (in this case, 10) as input. It then computes similarity scores between the query and each retrieved passage.
-* The transformer model serves as the backbone for our cross-encoder approach.
-Dense Passage Retriever: ms-marco-MiniLM-L-6-v2
+* The transformer model serves as the backbone for our cross-encoder approach:
+* - Dense Passage Retriever: ms-marco-MiniLM-L-6-v2
+  - Sparse Retriever: All-MiniLM-L6-v2
 * The top 5, top 3, and top 1 passage was then selected and given to the Generator model.
 
 ![image](https://github.com/tanishq51099/Generative-Question-Answering/assets/114322584/48f0ce5e-3a09-4260-9916-211b6c9f4356)
